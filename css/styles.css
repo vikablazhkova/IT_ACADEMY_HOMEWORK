@@ -1,29 +1,37 @@
 h1 {
 	color: green;
 }
+
 .logo {
 	background: yellow;
 }
-.bg-blue{
+
+.bg-blue {
 	background-color: blue;
 }
-#file{
+
+#file {
 	padding: 20px 0 20px 0;
 	border: 13px solid black;
 }
+
 [data-li="text li1"] {
 	background: pink;
 }
+
 [data-li^="li"] {
 	background: yellow;
 }
+
 [data-li$="li2"] {
 	background: black;
 	color: white;
 }
+
 [data-li*=" "] {
 	font-size: 20px;
 }
+
 [data-li~="h"] {
 	font-size: 80px;
 	color: aqua;
