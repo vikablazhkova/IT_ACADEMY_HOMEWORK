@@ -57,3 +57,70 @@ h1 {
 .line-height {
 	line-height: normal;
 }
+
+section {
+	height: 100vh;
+	width: 95vw;
+	background: white;
+	box-sizing: border-box;
+	margin: 0 auto;
+	padding: 5px;
+	overflow-y: hidden;
+	overflow-x: auto;
+	white-space: nowrap;
+	counter-reset: col ;
+
+}
+
+section .col {
+	width: 100px;
+	height: 100%;
+	background:green;
+	display: inline-block;
+	overflow-y:auto;
+	overflow-x: hidden;
+	counter-increment: col;
+	counter-reset: cell;
+
+}
+
+section .col .cell {
+	counter-increment: cell;
+	width: 100%;
+	height: 200px;
+	background: red;
+	margin: 0 0 5px;
+
+}
+section .col .cell::before{
+	content: counter(col) counter(cell);
+}
+.hover{
+	width: 50%;
+	margin: 0 auto;
+}
+.hover p {
+	background: red;
+	position: relative;
+}
+.hover p::before {
+	content: '';
+	position: absolute;
+	top:0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	opacity: 0.5;
+}
+.hover p:nth-child(odd):hover::before{
+	left: -50%;
+}
+.hover p:nth-child(even):hover:before{
+	right: -50%;
+}
+.fixed {
+	position: fixed;
+	top: 0;
+	background: yellow;
+}
