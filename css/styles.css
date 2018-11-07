@@ -68,56 +68,81 @@ section {
 	overflow-y: hidden;
 	overflow-x: auto;
 	white-space: nowrap;
-	counter-reset: col ;
-
+	counter-reset: col;
 }
-
 section .col {
 	width: 100px;
 	height: 100%;
-	background:green;
+	background: grey;
 	display: inline-block;
-	overflow-y:auto;
+	overflow-y: auto;
 	overflow-x: hidden;
 	counter-increment: col;
 	counter-reset: cell;
 
 }
-
 section .col .cell {
 	counter-increment: cell;
 	width: 100%;
 	height: 200px;
 	background: red;
 	margin: 0 0 5px;
+	overflow-y: auto;
+	overflow-x: auto;
+}
+section .col .cell.height1 {
+	height: 50px;
+}
+section .col .cell.height2 {
+	height: 100px;
+}
+section .col .cell.height3 {
+	height: 300px;
+}
+section .col .cell.height4 {
+	height: 500px;
+}
+section .col .cell::before {
+	content: 'Стовбчик ' counter(col) ' - Клітинка ' counter(cell);
+}
 
-}
-section .col .cell::before{
-	content: counter(col) counter(cell);
-}
-.hover{
+.hover {
 	width: 50%;
 	margin: 0 auto;
 }
+
 .hover p {
 	background: red;
 	position: relative;
 }
+
 .hover p::before {
 	content: '';
 	position: absolute;
-	top:0;
+	top: 0;
 	bottom: 0;
 	width: 100%;
 	height: 100%;
 	background: #000;
 	opacity: 0.5;
 }
-.hover p:nth-child(odd):hover::before{
+
+.hover p:nth-child(odd):hover::before {
 	left: -50%;
 }
-.hover p:nth-child(even):hover:before{
+
+.hover p:nth-child(even):hover:before {
 	right: -50%;
+}
+#iakor1:target,
+#iakor2:target,
+#iakor3:target,
+#iakor4:target,
+#iakor5:target,
+#iakor6:target {
+	background:black;
+	text-decoration:underline;
+	color: white;
 }
 .fixed {
 	position: fixed;
